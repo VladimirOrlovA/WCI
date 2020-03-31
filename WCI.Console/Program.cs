@@ -145,7 +145,7 @@ namespace WCI.ConsoleApp
 
             Console.WriteLine(new string('=', 90));
 
-            #endregion test with patterns - Factory Method  and  MVC model
+            #endregion test with patterns - Factory Method  and  MVC model 
 
             Console.ReadKey();
         }
