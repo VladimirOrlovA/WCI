@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WCI.BLL;
 
 namespace WCI.WpfApp
 {
@@ -23,6 +24,26 @@ namespace WCI.WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            FillWeatherBlock();
+        }
+
+        public void FillWeatherBlock()
+        {
+            Controller controller = new Controller();
+
+            WeatherDTO weatherDTO = controller.GetWeatherDTO();
+
+
+            int count = 0;
+            foreach (var elem in weatherDTO.forecastsDTO)
+            {
+                WeatherBlock weatherBlock = new WeatherBlock();
+                weatherBlock.DataContext = elem;
+
+                Grid.SetColumn(weatherBlock, count);
+                gridWeatherBlocks.Children.Add(weatherBlock);
+                count++;
+            }
         }
     }
 }

@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WCI.WpfApp"
         mc:Ignorable="d"
-        Title="Weather and Currency Info" Height="700" Width="1200">
+        Title="Weather and Currency Info" 
+        Height="700" Width="1200"
+        Background="DarkGray">
    
-    <Grid x:Name="gridWeatherBlock">
+    <Grid x:Name="gridInfoBlocks">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
@@ -15,7 +17,7 @@
 
         <GroupBox Grid.Row="0" Header="Прогноз погоды"
                   Margin="10" Foreground="Black">
-            <Grid x:Name="gridWheatherBloks">
+            <Grid x:Name="gridWeatherBlocks">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.2*"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>

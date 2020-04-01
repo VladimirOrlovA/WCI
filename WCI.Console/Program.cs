@@ -117,17 +117,17 @@ namespace WCI.ConsoleApp
 
             foreach(var forecast in weatherDTO.forecastsDTO)
             {
-                Console.WriteLine(forecast.forecastDate.ToShortDateString());
+                Console.WriteLine(forecast.Date);
                 Console.WriteLine(forecast.TimesOfDay);
-                Console.WriteLine(forecast.temperature);
-                Console.WriteLine(forecast.heat);
+                Console.WriteLine(forecast.Temperature);
+                Console.WriteLine(forecast.Heat);
                 Console.WriteLine(forecast.phenomena.Cloudiness);
                 Console.WriteLine(forecast.phenomena.Precipitation);
                 Console.WriteLine(forecast.phenomena.Rpower);
                 Console.WriteLine(forecast.phenomena.Spower);
-                Console.WriteLine(forecast.wind);
-                Console.WriteLine(forecast.relwet);
-                Console.WriteLine(forecast.pressure);
+                Console.WriteLine(forecast.Wind);
+                Console.WriteLine(forecast.Relwet);
+                Console.WriteLine(forecast.Pressure);
 
                 Console.WriteLine("\n" + new string('=', 90));
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 using WCI.DAL;
 
 namespace WCI.BLL
@@ -30,7 +31,11 @@ namespace WCI.BLL
                 WeatherDTO.ForecastDTO item = new WeatherDTO.ForecastDTO();
 
                 // дата прогноза
-                item.forecastDate = forecast.GetDateTime();
+                DateTime dateTime = forecast.GetDateTime();
+                item.Date = dateTime.ToString("dd MMMM yyyy", new CultureInfo("ru"));
+
+                // день недели
+                item.DayOfWeek = dateTime.ToString("dddd", new CultureInfo("ru"));
 
                 // время суток 
                 description.tod.TryGetValue(forecast.Tod, out value);
@@ -40,7 +45,7 @@ namespace WCI.BLL
                 item.Predict = forecast.Predict;
 
                 // атмосферные явления
-                WeatherDTO.ForecastDTO.Phenomena phenomena = new WeatherDTO.ForecastDTO.Phenomena();
+                Phenomena phenomena = new Phenomena();
 
                 // атмосферные явления -  облачность
                 description.cloudiness.TryGetValue(forecast.phenomena.Cloudiness, out value);
@@ -62,13 +67,14 @@ namespace WCI.BLL
                     phenomena.Rpower = value;
                 }
 
-                item.phenomena = phenomena;
+                item.Phenomena = phenomena;
 
-                item.pressure = forecast.pressure.ToString();
-                item.temperature = forecast.temperature.ToString();
-                item.wind = forecast.wind.ToString();
-                item.relwet = forecast.relwet.ToString();
-                item.heat = forecast.heat.ToString();
+                string pressureStr = forecast.pressure.ToString();
+                item.Pressure = pressureStr.Substring(12);
+                item.Temperature = forecast.temperature.Min + " - " + forecast.temperature.Max + "C";
+                item.Wind = "ветер " + forecast.wind.Min + "-" + forecast.wind.Max + " м/с" + forecast.wind.Direction;
+                item.Relwet = "влажность " + forecast.relwet.Min + "-" + forecast.relwet.Max + " %";
+                item.Heat = forecast.heat.Min + " - " + forecast.heat.Max + "C";
 
 
                 weatherDTO.forecastsDTO.Add(item);
