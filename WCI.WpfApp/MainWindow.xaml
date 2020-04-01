@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WCI.WpfApp"
         mc:Ignorable="d"
         Title="Weather and Currency Info" 
-        Height="700" Width="1200"
+        Height="700" Width="1300"
         Background="DarkGray">
    
     <Grid x:Name="gridInfoBlocks">

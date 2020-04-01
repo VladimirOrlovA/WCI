@@ -121,10 +121,10 @@ namespace WCI.ConsoleApp
                 Console.WriteLine(forecast.TimesOfDay);
                 Console.WriteLine(forecast.Temperature);
                 Console.WriteLine(forecast.Heat);
-                Console.WriteLine(forecast.phenomena.Cloudiness);
-                Console.WriteLine(forecast.phenomena.Precipitation);
-                Console.WriteLine(forecast.phenomena.Rpower);
-                Console.WriteLine(forecast.phenomena.Spower);
+                Console.WriteLine(forecast.Phenomena.Cloudiness);
+                Console.WriteLine(forecast.Phenomena.Precipitation);
+                Console.WriteLine(forecast.Phenomena.Rpower);
+                Console.WriteLine(forecast.Phenomena.Spower);
                 Console.WriteLine(forecast.Wind);
                 Console.WriteLine(forecast.Relwet);
                 Console.WriteLine(forecast.Pressure);
